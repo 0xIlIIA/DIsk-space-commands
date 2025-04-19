@@ -1,0 +1,59 @@
+# Show disk usage of all mounted filesystems
+df -h
+
+# Show disk usage of current directory
+du -sh .
+
+# Show usage of folders in current directory
+du -h --max-depth=1
+
+# Find large files over 100MB
+find / -type f -size +100M
+
+# Show available inodes
+df -i
+
+# Check disk I/O stats
+iostat
+
+# Browse disk usage interactively (may need install)
+ncdu /
+
+# Show partition layout
+lsblk
+
+# Disk usage tree view
+tree -L 2 -h
+
+# Clean package cache (Debian/Ubuntu)
+sudo apt clean
+
+# Remove old journal logs
+sudo journalctl --vacuum-time=3d
+
+# Remove orphaned packages
+sudo apt autoremove
+
+# View mounted filesystems
+mount | column -t
+
+# Top 10 largest files
+find . -type f -exec du -Sh {} + | sort -rh | head -n 10
+
+# Check usage by user
+sudo du -sh /home/*
+
+# Total folder size
+du -sh /path/to/folder
+
+# Count files in a directory
+find /path -type f | wc -l
+
+# Check disk quotas (if enabled)
+quota -v
+
+# List deleted files still in use
+lsof | grep deleted
+
+# Check disk SMART health
+sudo smartctl -a /dev/sda
